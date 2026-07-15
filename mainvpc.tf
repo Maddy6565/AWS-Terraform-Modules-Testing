@@ -1,6 +1,6 @@
 module "vpc" {
 
-  source = "/modules/vpc"
+  source = "./modules/vpc"
 
   name = "terraform-demo-vpc"
 
