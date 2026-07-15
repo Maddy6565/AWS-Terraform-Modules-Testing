@@ -4,7 +4,7 @@ resource "aws_instance" "dev_server" {
     key_name = "demo-key"
 
     tags = {
-        Name = "test2"
+        Name = var.ec2_tags
 
     }
 }
