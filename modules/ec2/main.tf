@@ -5,6 +5,6 @@ resource "aws_instance" "dev_server" {
 
     tags = {
         Name = "test2"
-        Project = "demo"
+
     }
 }
