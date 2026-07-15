@@ -9,6 +9,8 @@ variable "instance_type" {
     description = "The is default size"
 }
 variable "ec2_tags" {
+
     type = map(string)
     default = {}
+
 }
