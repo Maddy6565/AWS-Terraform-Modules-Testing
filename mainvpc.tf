@@ -8,7 +8,12 @@ module "vpc" {
 
 }
 module "ec2" {
-    source = "./Modules/ec2"
 
+    source = "./modules/ec2"
+
+    ec2_tags = {
+
+        Name = "Demo-testing"
+    }
 
 }

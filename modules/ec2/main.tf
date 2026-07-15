@@ -5,6 +5,5 @@ resource "aws_instance" "dev_server" {
 
     tags = {
         Name = var.ec2_tags
-
     }
 }
