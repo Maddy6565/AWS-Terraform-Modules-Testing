@@ -1,7 +1,7 @@
 jobs:
   terraform:
-    run-on: ubuntu-latest
-    environmnet: dev
+    runs-on: ubuntu-latest
+    environment: dev
     env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
         AWS SECRET ACCESS KEY: ${{ secrets. AWS_SECRET_ACCESS_KEY }}
