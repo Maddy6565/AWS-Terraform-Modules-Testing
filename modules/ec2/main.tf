@@ -3,5 +3,7 @@ resource "aws_instance" "dev_server" {
     ami = var.ami_id
     key_name = "demo-key"
 
+
     tags = var.ec2_tags
+
 }
