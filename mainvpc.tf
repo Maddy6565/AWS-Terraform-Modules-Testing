@@ -2,7 +2,7 @@ module "vpc" {
 
   source = "./modules/vpc"
 
-  name = "terraform-demo-vpc"
+  name = "terraform-demo-vpc-2"
 
   vpc_cidr = "10.0.0.0/24"
 
@@ -13,7 +13,7 @@ module "ec2" {
 
     ec2_tags = {
 
-        Name = "Demo-testing"
+        Name = "Demo-testing-2"
     }
 
 }
