@@ -6,7 +6,7 @@ variable "cidr_block" {
     type = string
 }
 
-varibale "availability_zone" {
+variable "availability_zone" {
     type = string
 }
 
