@@ -10,45 +10,45 @@ module "vpc" {
 
 module "subnet" {
 
-    source = "./modules/subnet"
+  source = "./modules/subnet"
 
-    vpc_id = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
 
-    availability_zone = "us-east-2a"
+  availability_zone = "us-east-2a"
 
-    cidr_block = "10.0.0.0/24"
+  cidr_block = "10.0.0.0/24"
 
-    subnet_tags = {
-      Name = "Demo-subnet-1"
-    }
+  subnet_tags = {
+    Name = "Demo-subnet-1"
+  }
 
 }
 
 module "igw" {
 
-    source = "./modules/igw"
-    
-    vpc_id = module.vpc.vpc_id
-    
-    igw_tags = {
+  source = "./modules/igw"
 
-        Name = "Demo-igw-1"
-    
-    }
+  vpc_id = module.vpc.vpc_id
+
+  igw_tags = {
+
+    Name = "Demo-igw-1"
+
+  }
 
 }
 
 module "ec2" {
 
-    source = "./modules/ec2"
+  source = "./modules/ec2"
 
-    instance_type = "t3.small"
+  instance_type = "t3.small"
 
-    ami_id = "ami-0daff962b1c050d36"
+  ami_id = "ami-0daff962b1c050d36"
 
-    ec2_tags = {
+  ec2_tags = {
 
-        Name = "Demo-testing-1"
-    }
+    Name = "Demo-testing-1"
+  }
 
 }
