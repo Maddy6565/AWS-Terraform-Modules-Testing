@@ -10,7 +10,7 @@ variable "availability_zone" {
     type = string
 }
 
-variable "tags" {
+variable "subnet_tags" {
     type = map(string)
     default = {}
 }
