@@ -19,7 +19,7 @@ module "subnet" {
     cidr_block = "10.0.0.0/24"
 
     subnet_tags = {
-      Name = "Demo-security-group"
+      Name = "Demo-subnet-1"
     }
 
 }
