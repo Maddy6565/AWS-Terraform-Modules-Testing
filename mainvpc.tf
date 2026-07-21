@@ -28,6 +28,10 @@ module "ec2" {
 
     source = "./modules/ec2"
 
+    instance_type = "t3.small"
+
+    ami_id = "ami-0daff962b1c050d36"
+
     ec2_tags = {
 
         Name = "Demo-testing-1"
