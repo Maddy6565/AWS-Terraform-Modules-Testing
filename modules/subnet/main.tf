@@ -3,7 +3,5 @@ resource "aws_subnet" "dev_subnet" {
     cidr_block = var.cidr_block
     availability_zone = var.availability_zone
 
-    tags = {
-        Name = var.subnet_tags
-    }
+    tags = var.subnet_tags
 }
