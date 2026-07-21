@@ -14,7 +14,7 @@ module "subnet" {
 
     vpc_id = module.vpc.vpc_id
 
-    availability_zone = "us-eat-2"
+    availability_zone = "us-east-2a"
 
     cidr_block = "10.0.0.0/24"
 
