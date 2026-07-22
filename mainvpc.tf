@@ -83,6 +83,8 @@ module "ec2" {
 
   subnet_id = module.subnet.subnet_id
 
+  security_group_id = module.security_group.security_group_id
+
   username = "manideep"
 
   password = "Qwerty@123"

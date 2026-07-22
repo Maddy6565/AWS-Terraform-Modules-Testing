@@ -3,7 +3,7 @@ resource "aws_instance" "dev_server" {
     ami = var.ami_id
     key_name = "demo-key"
     subnet_id = var.subnet_id
-    
+    vpc_security_group_ids = [var.security_group_id]
     
     user_data = <<-EOF
     #!/bin/bash

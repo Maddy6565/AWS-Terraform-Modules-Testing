@@ -17,6 +17,11 @@ variable "subnet_id" {
     
     type = string
 }
+
+variable "security_group_id" {
+  type = string
+}
+
 variable "username" {
   type = string
   default = "user123"
