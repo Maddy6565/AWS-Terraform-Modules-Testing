@@ -60,6 +60,21 @@ module "aws_route_table_association" {
     route_table_id = module.route_table.route_table_id
 }
 
+module "security_group" {
+
+  source = "./modules/security-group"
+
+  vpc_id = module.vpc.vpc_id
+
+  security_group_name        = "Demo-security-group-1"
+  security_group_description = "Security Group for EC2"
+
+  security_group_tags = {
+    Name = "Demo-security-group-1"
+  }
+
+}
+
 module "ec2" {
 
   source = "./modules/ec2"
