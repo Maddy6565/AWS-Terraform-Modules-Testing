@@ -51,6 +51,15 @@ module "route_table" {
     }
 }
 
+module "aws_route_table_association" {
+
+    source = "./modules/route-table-association"
+
+    subnet_id = module.subnet.subnet_id
+
+    route_table_id = module.route_table.route_table_id
+}
+
 module "ec2" {
 
   source = "./modules/ec2"
