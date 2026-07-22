@@ -38,11 +38,26 @@ module "igw" {
 
 }
 
+module "route_table" {
+
+    source = "./modules/route-table"
+
+    vpc_id = module.vpc.vpc_id
+
+    igw_id = module.igw.igw_id
+
+    route_table_tags = {
+      Name = "Demo-route-table-1"
+    }
+}
+
 module "ec2" {
 
   source = "./modules/ec2"
 
   instance_type = "t3.small"
+
+  subnet_id = module.var.subnet_id
 
   username = "manideep"
 
