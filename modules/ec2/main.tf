@@ -2,6 +2,7 @@ resource "aws_instance" "dev_server" {
     instance_type = var.instance_type
     ami = var.ami_id
     key_name = "demo-key"
+    subnet_id = var.subnet_id
     
     
     user_data = <<-EOF
