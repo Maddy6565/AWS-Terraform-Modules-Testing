@@ -66,7 +66,7 @@ module "ec2" {
 
   instance_type = "t3.small"
 
-  subnet_id = module.var.subnet_id
+  subnet_id = module.subnet.subnet_id
 
   username = "manideep"
 
