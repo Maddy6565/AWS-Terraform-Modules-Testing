@@ -40,24 +40,24 @@ module "igw" {
 
 module "route_table" {
 
-    source = "./modules/route-table"
+  source = "./modules/route-table"
 
-    vpc_id = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
 
-    igw_id = module.igw.igw_id
+  igw_id = module.igw.igw_id
 
-    route_table_tags = {
-      Name = "Demo-route-table-1"
-    }
+  route_table_tags = {
+    Name = "Demo-route-table-1"
+  }
 }
 
 module "aws_route_table_association" {
 
-    source = "./modules/route-table-association"
+  source = "./modules/route-table-association"
 
-    subnet_id = module.subnet.subnet_id
+  subnet_id = module.subnet.subnet_id
 
-    route_table_id = module.route_table.route_table_id
+  route_table_id = module.route_table.route_table_id
 }
 
 module "ec2" {
@@ -66,7 +66,7 @@ module "ec2" {
 
   instance_type = "t3.small"
 
-  subnet_id = module.var.subnet_id
+  subnet_id = module.subnet.subnet_id
 
   username = "manideep"
 

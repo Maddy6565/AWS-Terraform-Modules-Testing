@@ -1,3 +1,3 @@
-output "igw_tags" {
+output "igw_id" {
   value = aws_internet_gateway.igw
 }
