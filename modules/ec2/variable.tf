@@ -14,3 +14,14 @@ variable "ec2_tags" {
     default = {}
 
 }
+variable "username" {
+  type = string
+  default = "user123"
+  description = "This is default username"
+}
+variable "password" {
+  type = string
+  sensitive = true
+  default = "Password123"
+  description = "This is default password"
+}
