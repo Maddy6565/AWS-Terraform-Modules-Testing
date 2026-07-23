@@ -75,6 +75,18 @@ module "security_group" {
 
 }
 
+module "elastic_ip" {
+
+  source = "./modules/elastic-ip"
+
+  elastic_ip_tags = {
+
+    Name = "Demo-Elastic-IP-1"
+
+  }
+
+}
+
 module "ec2" {
 
   source = "./modules/ec2"
