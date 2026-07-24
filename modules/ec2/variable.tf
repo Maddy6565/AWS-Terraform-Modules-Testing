@@ -30,6 +30,6 @@ variable "username" {
 variable "password" {
   type = string
   sensitive = true
-  default = "Password123"
+  default = "Password@123"
   description = "This is default password"
 }

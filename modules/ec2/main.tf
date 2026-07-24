@@ -7,7 +7,7 @@ resource "aws_instance" "dev_server" {
     
     user_data = <<-EOF
     #!/bin/bash
-    useradd ${var.username}
+    useradd -m -s /bin/bash ${var.username}
     echo "${var.username}:${var.password}" | chpasswd
     EOF 
 
