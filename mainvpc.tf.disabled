@@ -24,6 +24,22 @@ module "subnet" {
 
 }
 
+module "subnet-2" {
+
+  source = "./modules/subnet"
+
+  vpc_id = module.vpc.vpc_id
+
+  availability_zone = "us-east-2a"
+
+  cidr_block = "10.0.0.32/28"
+
+  subnet_tags = {
+    Name = "Demo-subnet-2"
+  }
+
+}
+
 module "igw" {
 
   source = "./modules/igw"
@@ -75,6 +91,21 @@ module "security_group" {
 
 }
 
+module "security_group-2" {
+
+  source = "./modules/security-group"
+
+  vpc_id = module.vpc.vpc_id
+
+  security_group_name        = "Demo-security-group-2"
+  security_group_description = "Security Group for EC2-2"
+
+  security_group_tags = {
+    Name = "Demo-security-group-2"
+  }
+
+}
+
 module "elastic_ip" {
 
   source = "./modules/elastic-ip"
@@ -104,6 +135,27 @@ module "ec2" {
   ec2_tags = {
 
     Name = "Demo-testing-1"
+  }
+
+}
+
+module "ec2-2" {
+
+  source = "./modules/ec2"
+
+  instance_type = "t3.micro"
+
+  subnet_id = module.subnet-2.subnet_id
+
+  security_group_id = module.security_group-2.security_group_id
+
+  username = "manish"
+
+  password = "Qwerty@123"
+
+  ec2_tags = {
+
+    Name = "Demo-testing-2"
   }
 
 }
