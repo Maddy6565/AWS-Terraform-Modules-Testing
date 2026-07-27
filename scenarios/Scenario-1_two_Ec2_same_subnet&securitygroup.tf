@@ -129,3 +129,19 @@ module "ec2_b" {
   }
 
 }
+
+module "cloudwatch" {
+
+  source = "../modules/cloudwatch"
+
+  log_group_name = "/aws/vpc/Demo-vpc"
+
+  retention_in_days = "45"
+
+  log_group_tags = {
+
+    Name = "Demo-VPC-logs"
+    
+  }
+
+}
