@@ -124,6 +124,7 @@ module "cloudwatch" {
 
   log_group_name = "/aws/vpc/Demo-vpc"
 
+
   retention_in_days = "60"
 
   log_group_tags = {
@@ -152,5 +153,5 @@ module "aim-policy" {
   policy_name = "Demo-VPC-FlowLogs-Policy"
 
   role_name = "Demo-VPC-Flow-Logs-role"
-  
+ 
 }
