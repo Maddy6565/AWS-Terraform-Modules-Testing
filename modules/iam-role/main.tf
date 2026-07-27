@@ -2,7 +2,7 @@ resource "aws_iam_role" "role_name" {
 
     name = var.role_name
 
-    assume_role_policy = jsondecode({
+    assume_role_policy = jsonencode({
 
         "Version": "2012-10-17",
         "Statement": [
@@ -10,7 +10,7 @@ resource "aws_iam_role" "role_name" {
                 "Sid": "Statement1",
                 "Effect": "Allow",
                 "Principal": {
-                    "Service": "vpc-flow-logs.amazonaws.com"
+                    "Service": "var.service_name"
                 },
                 "Action": "sts:AssumeRole"
             }
