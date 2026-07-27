@@ -76,18 +76,6 @@ module "security_group" {
 
 }
 
-module "elastic_ip" {
-
-  source = "../modules/elastic-ip"
-
-  elastic_ip_tags = {
-
-    Name = "Demo-Elastic-IP-1"
-
-  }
-
-}
-
 module "ec2_a" {
 
   source = "../modules/ec2"
@@ -136,12 +124,23 @@ module "cloudwatch" {
 
   log_group_name = "/aws/vpc/Demo-vpc"
 
-  retention_in_days = "45"
+  retention_in_days = "60"
 
   log_group_tags = {
 
     Name = "Demo-VPC-logs"
-    
+
   }
 
+}
+
+module "iam" {
+
+  source = "../modules/iam"
+
+  role_name = "Demo-VPC-Flow-Logs"
+
+  role_tags = {
+    Name = "Demo-VPC-Flow-Logs"
+  }
 }
