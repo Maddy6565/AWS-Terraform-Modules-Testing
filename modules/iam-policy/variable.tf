@@ -1,6 +1,6 @@
 variable "policy_name" {
     type = string
 }
-variable "role_name" {
+variable "policy_document" {
     type = string
 }

@@ -140,6 +140,8 @@ module "iam-role" {
 
   role_name = "Demo-VPC-Flow-Logs-role"
 
+  service_name = "vpc-flow-logs.amazon.com"
+
   role_tags = {
     Name = "Demo-VPC-Flow-Logs-role"
   }
@@ -151,6 +153,41 @@ module "aim-policy" {
 
   policy_name = "Demo-VPC-FlowLogs-Policy"
 
-  role_name = "Demo-VPC-Flow-Logs-role"
-  
+  policy_document = jsonencode({
+
+    Version = "2012-10-17"
+
+    Statement = [
+
+      {
+
+        Effect = "Allow"
+
+        Action = [
+
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "logs:DescribeLogGroups",
+          "logs:DescribeLogStreams"
+
+        ]
+
+        Resource = "*"
+
+      }
+
+    ]
+
+  })
+
+}
+
+module "iam-role-policy-attachment" {
+
+  source = "../modules/iam-role-policy-attachment"
+
+  role_name = "modules.iam_role.role_name"
+
+  policy_arn = "modules.iam_policy.policy_arn"
 }

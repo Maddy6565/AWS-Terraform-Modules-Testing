@@ -1,3 +1,3 @@
-output "policy_name" {
-  value = aws_iam_policy.policy_name.name
+output "policy_arn" {
+  value = aws_iam_policy.main.arn
 }
