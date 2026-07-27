@@ -134,13 +134,23 @@ module "cloudwatch" {
 
 }
 
-module "iam" {
+module "iam-role" {
 
-  source = "../modules/iam"
+  source = "../modules/iam-role"
 
-  role_name = "Demo-VPC-Flow-Logs"
+  role_name = "Demo-VPC-Flow-Logs-role"
 
   role_tags = {
-    Name = "Demo-VPC-Flow-Logs"
+    Name = "Demo-VPC-Flow-Logs-role"
   }
+}
+
+module "aim-policy" {
+
+  source = "../modules/iam-policy"
+
+  policy_name = "Demo-VPC-FlowLogs-Policy"
+
+  role_name = "Demo-VPC-Flow-Logs-role"
+  
 }
