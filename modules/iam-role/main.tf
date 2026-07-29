@@ -10,7 +10,7 @@ resource "aws_iam_role" "role_name" {
                 "Sid": "Statement1",
                 "Effect": "Allow",
                 "Principal": {
-                    "Service": "var.service_name"
+                    "Service": var.service_name
                 },
                 "Action": "sts:AssumeRole"
             }
