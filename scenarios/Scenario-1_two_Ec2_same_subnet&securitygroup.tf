@@ -142,13 +142,13 @@ module "iam-role" {
   role_name = "Demo-VPC-Flow-Logs-role"
 
   service_name = "vpc-flow-logs.amazonaws.com"
-  
+
   role_tags = {
     Name = "Demo-VPC-Flow-Logs-role"
   }
 }
 
-module "aim-policy" {
+module "iam-policy" {
 
   source = "../modules/iam-policy"
 
@@ -188,8 +188,8 @@ module "iam-role-policy-attachment" {
 
   source = "../modules/iam-role-policy-attachment"
 
-  role_name = "modules.iam-role.role_name"
+  role_name = module.iam-role.role_name
 
-  policy_arn = "modules.iam-policy.policy_arn"
+  policy_arn = module.iam-policy.policy_arn
 
 }
