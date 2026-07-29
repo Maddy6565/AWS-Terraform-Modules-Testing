@@ -193,3 +193,17 @@ module "iam-role-policy-attachment" {
   policy_arn = module.iam-policy.policy_arn
 
 }
+
+module "vpc-flow-log" {
+
+  source = "../modules/vpc-flow-log"
+
+  vpc_id = module.vpc.vpc_id
+
+  iam_role_arn = module.iam-role.role_arn
+
+  log_group_arn = module.cloudwatch.log_group_arn
+
+  traffic_type = "ALL"
+
+}
