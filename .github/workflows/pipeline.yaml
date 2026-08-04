@@ -3,7 +3,7 @@ name: pipeline
 on:
   pull_request:
     branches:
-      - main
+      - main, modules
 
 jobs:
   pipeline:
