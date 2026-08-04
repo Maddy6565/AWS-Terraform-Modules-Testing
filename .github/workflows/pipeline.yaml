@@ -1,0 +1,36 @@
+name: pipeline
+
+on:
+  pull_request:
+  branches:
+    - main
+
+jobs:
+  pipeline:
+    runs_on: ubuntu-latest
+    environment: dev
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: us-east-2
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform init
+      - run: terraform init
+
+      - name: Terraform Validate
+      - run: terraform validate
+
+      - name: Terraform Plan
+      - run: terraform plan -no-color > plan.txt
+      
+      - name: Post Terraform Plan to PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file plan.txt
