@@ -2,12 +2,12 @@ name: pipeline
 
 on:
   pull_request:
-  branches:
-    - main
+    branches:
+      - main
 
 jobs:
   pipeline:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     environment: dev
 
     env:
@@ -20,14 +20,14 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
 
       - name: Terraform init
-      - run: terraform init
+         run: terraform init
 
       - name: Terraform Validate
-      - run: terraform validate
+         run: terraform validate
 
       - name: Terraform Plan
-      - run: terraform plan -no-color > plan.txt
-      
+         run: terraform plan -no-color > plan.txt
+
       - name: Post Terraform Plan to PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
